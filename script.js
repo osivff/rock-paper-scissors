@@ -47,12 +47,18 @@ function playRound(humanChoice, computerChoice){
     } else if(count === 4){
         console.log(`Final Score: Computer ${computerScore} | Human ${humanScore}.`);
         if(computerScore > humanScore){
-            return "COMPUTER WINS!"
+            console.log("COMPUTER WINS!");
         } else if(computerScore < humanScore) {
-            return "YOU WIN!";
+            return console.log("YOU WIN!");
         } else {
-            return "IT'S A DRAW!"
+            return console.log("IT'S A DRAW!");
         }
     }
 }
 
+function playGame(){
+    for(let i = 0; i <= 4; i++){
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+        
+}
