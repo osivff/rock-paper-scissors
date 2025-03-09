@@ -34,3 +34,6 @@ This is a simple Rock Paper Scissors game built using mainly JavaScript with som
  - Create UI: Buttons for each option, a scoreboard and a play again button.
  - Add sound effects: Ambient music, roll effect, win/lose sound.
  - Difficulty levels: Easy, Medium, Hard
+
+ ## Credits 🙏
+ This project is part of [The Odin Project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors) curriculum. Special thanks to their amazing community and resources for guiding me through the process of building this game and enhancing my JavaScript skills!
