@@ -21,8 +21,10 @@ function getHumanChoice(){
 }
 
 function playRound(humanChoice, computerChoice){
+
     let human = humanChoice.toLowerCase();
     let computer = computerChoice.toLowerCase();
+
     if(count < 4){
         count++;
         console.log(count);
@@ -31,13 +33,13 @@ function playRound(humanChoice, computerChoice){
         } else {
             if(computer === "rock" && human != "paper"){
                 computerScore++;
-                console.log(`${computer} beats ${human}. Computer wins!`);
+                console.log(`${computer} beats ${human}. Computer wins this round!`);
             } else if(computer === "paper" && human != "scissors"){
                 computerScore++;
-                console.log(`${computer} beats ${human}. Computer wins!`);
+                console.log(`${computer} beats ${human}. Computer wins this round!`);
             } else if(computer === "scissors" && human != "rock"){
                 computerScore++;
-                console.log(`${computer} beats ${human}. Computer wins!`);
+                console.log(`${computer} beats ${human}. Computer wins this round!`);
             } else {
                 humanScore++;
                 console.log(`${human} beats ${computer}. You win this round!`);
