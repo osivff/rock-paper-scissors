@@ -21,7 +21,7 @@ This is a simple Rock Paper Scissors game built using mainly JavaScript with som
  ## How to Play 📜
  1. Go to the website: https://osivff.github.io/rock-paper-scissors/
  2. Open web developer tools: <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>I</kbd>
- 3. Type <code>playGame()</code> and type rock, paper or scissors in the prompt!
+ 3. Click<kbd>Play Game</kbd> button and type rock, paper or scissors in the prompt!
  4. Once finish is going to display the winner in the console.
  5. To play again reload the page using <kbd>F5</kbd>
 
