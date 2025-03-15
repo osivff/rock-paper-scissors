@@ -49,11 +49,11 @@ function playRound(humanChoice, computerChoice){
     } else if(count === 4){
         console.log(`Final Score: Computer ${computerScore} | Human ${humanScore}.`);
         if(computerScore > humanScore){
-            console.log("COMPUTER WINS!");
+            return "COMPUTER WINS!";
         } else if(computerScore < humanScore) {
-            return console.log("YOU WIN!");
+            return "YOU WIN!";
         } else {
-            return console.log("IT'S A DRAW!");
+            return "IT'S A DRAW!";
         }
     }
 }
@@ -64,3 +64,10 @@ function playGame(){
     }
         
 }
+
+const computerRandomizer = document.querySelector(".play-game");
+
+
+computerRandomizer.addEventListener("click", () => {
+    playGame();
+});
