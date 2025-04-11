@@ -3,6 +3,9 @@ let usrInput;
 let humanScore = 0;
 let computerScore = 0;
 let count = 0;
+let humanChoice = '';
+const board = document.querySelector('.game');
+
 
 function getComputerChoice(){
     random = Math.floor((Math.random() * 3) + 1);
@@ -15,10 +18,10 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    usrInput = prompt("Choose between rock, paper or scissors");
-    return usrInput;
-}
+ board.addEventListener('click', (e) => {
+    humanChoice = e.target.innerText;
+});
+
 
 function playRound(humanChoice, computerChoice){
 
@@ -58,18 +61,8 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame(){
-    for(let i = 0; i <= 4; i++){
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-        
-}
-
-const computerRandomizer = document.querySelector(".play-game");
-
-
-computerRandomizer.addEventListener("click", () => {
-    playGame();
-});
-
-//Test for alternate branch
+// function playGame(){
+//     for(let i = 0; i <= 4; i++){
+//         playRound(, getComputerChoice());
+//     }
+// }
