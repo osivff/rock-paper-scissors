@@ -71,3 +71,5 @@ const computerRandomizer = document.querySelector(".play-game");
 computerRandomizer.addEventListener("click", () => {
     playGame();
 });
+
+//Test for alternate branch
