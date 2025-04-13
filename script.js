@@ -21,7 +21,6 @@ function getComputerChoice(){
 
  board.addEventListener('click', (e) => {
     humanChoice = e.target.innerText;
-    console.log(e.target.innerText);
 });
 
 
@@ -36,44 +35,36 @@ function playRound(humanChoice, computerChoice){
 
     if(count < 4){
         count++;
-        console.log(count);
         if(human === computer){
-            // console.log(`${human} and ${computer} are the same so it's a draw!`);
             para.textContent = `${human} and ${computer} are the same so it's a draw!`;
         } else {
             if(computer === "rock" && human != "paper"){
                 computerScore++;
-                // console.log(`${computer} beats ${human}. Computer wins this round!`);
                 para.textContent = `${computer} beats ${human}. Computer wins this round!`;
 
             } else if(computer === "paper" && human != "scissors"){
                 computerScore++;
-                // console.log(`${computer} beats ${human}. Computer wins this round!`);
                 para.textContent = `${computer} beats ${human}. Computer wins this round!`;
 
             } else if(computer === "scissor" && human != "rock"){
                 computerScore++;
-                // console.log(`${computer} beats ${human}. Computer wins this round!`);
                 para.textContent = `${computer} beats ${human}. Computer wins this round!`;
                 
             } else {
                 humanScore++;
-                // console.log(`${human} beats ${computer}. You win this round!`);
                 para.textContent = `${human} beats ${computer}. You win this round!`;
             }
         }
-        // console.log(`Score is - Computer: ${computerScore} | You: ${humanScore}`);
         currentScore.textContent = `Score is - Computer: ${computerScore} | You: ${humanScore}`;
         
     } else if(count === 4){
-        console.log(`Final Score: Computer ${computerScore} | Human ${humanScore}.`);
         finalScore.textContent = `Final Score: Computer ${computerScore} | Human ${humanScore}.`;
 
         if(computerScore > humanScore){
             winner.textContent = "COMPUTER WINS!";
-        } else if(computerScore < humanScore) {
+        } else if(computerScore < humanScore){
             winner.textContent = "YOU WIN!";
-        } else {
+        } else{
             winner.textContent = "IT'S A DRAW!";
         }
     }
@@ -87,9 +78,3 @@ function playRound(humanChoice, computerChoice){
 board.addEventListener('click', (e) => {
     playRound(humanChoice, getComputerChoice());
 });
-
-// function playGame(){
-//     for(let i = 0; i <= 4; i++){
-//         playRound(humanChoice, getComputerChoice());
-//     }
-// }
