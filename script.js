@@ -87,6 +87,5 @@ function playRound(humanChoice, computerChoice){
 
 
 choices.addEventListener('click', () => {
-    // body.appendChild(result);
     playRound(humanChoice, getComputerChoice());
 });
