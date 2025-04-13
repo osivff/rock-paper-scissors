@@ -4,7 +4,8 @@ let humanScore = 0;
 let computerScore = 0;
 let count = 0;
 let humanChoice = '';
-const board = document.querySelector('.game');
+const board = document.querySelector('.human-choice');
+const result = document.querySelector('.result');
 
 
 function getComputerChoice(){
@@ -14,12 +15,13 @@ function getComputerChoice(){
     } else if(random === 2){
         return "paper";
     } else {
-        return "scissors";
+        return "scissor";
     }
 }
 
  board.addEventListener('click', (e) => {
     humanChoice = e.target.innerText;
+    console.log(e.target.innerText);
 });
 
 
@@ -27,42 +29,67 @@ function playRound(humanChoice, computerChoice){
 
     let human = humanChoice.toLowerCase();
     let computer = computerChoice.toLowerCase();
+    const para = document.createElement('p');
+    const currentScore = document.createElement('p');
+    const finalScore = document.createElement('p');
+    const winner = document.createElement('p');
 
     if(count < 4){
         count++;
         console.log(count);
         if(human === computer){
-            console.log(`${human} and ${computer} are the same so it's a draw!`);
+            // console.log(`${human} and ${computer} are the same so it's a draw!`);
+            para.textContent = `${human} and ${computer} are the same so it's a draw!`;
         } else {
             if(computer === "rock" && human != "paper"){
                 computerScore++;
-                console.log(`${computer} beats ${human}. Computer wins this round!`);
+                // console.log(`${computer} beats ${human}. Computer wins this round!`);
+                para.textContent = `${computer} beats ${human}. Computer wins this round!`;
+
             } else if(computer === "paper" && human != "scissors"){
                 computerScore++;
-                console.log(`${computer} beats ${human}. Computer wins this round!`);
-            } else if(computer === "scissors" && human != "rock"){
+                // console.log(`${computer} beats ${human}. Computer wins this round!`);
+                para.textContent = `${computer} beats ${human}. Computer wins this round!`;
+
+            } else if(computer === "scissor" && human != "rock"){
                 computerScore++;
-                console.log(`${computer} beats ${human}. Computer wins this round!`);
+                // console.log(`${computer} beats ${human}. Computer wins this round!`);
+                para.textContent = `${computer} beats ${human}. Computer wins this round!`;
+                
             } else {
                 humanScore++;
-                console.log(`${human} beats ${computer}. You win this round!`);
+                // console.log(`${human} beats ${computer}. You win this round!`);
+                para.textContent = `${human} beats ${computer}. You win this round!`;
             }
         }
-        console.log(`Score is - Computer: ${computerScore} | You: ${humanScore}`);
+        // console.log(`Score is - Computer: ${computerScore} | You: ${humanScore}`);
+        currentScore.textContent = `Score is - Computer: ${computerScore} | You: ${humanScore}`;
+        
     } else if(count === 4){
         console.log(`Final Score: Computer ${computerScore} | Human ${humanScore}.`);
+        finalScore.textContent = `Final Score: Computer ${computerScore} | Human ${humanScore}.`;
+
         if(computerScore > humanScore){
-            return "COMPUTER WINS!";
+            winner.textContent = "COMPUTER WINS!";
         } else if(computerScore < humanScore) {
-            return "YOU WIN!";
+            winner.textContent = "YOU WIN!";
         } else {
-            return "IT'S A DRAW!";
+            winner.textContent = "IT'S A DRAW!";
         }
     }
+    result.appendChild(para);
+    result.appendChild(currentScore);
+    result.appendChild(finalScore);
+    result.appendChild(winner);
 }
+
+
+board.addEventListener('click', (e) => {
+    playRound(humanChoice, getComputerChoice());
+});
 
 // function playGame(){
 //     for(let i = 0; i <= 4; i++){
-//         playRound(, getComputerChoice());
+//         playRound(humanChoice, getComputerChoice());
 //     }
 // }
