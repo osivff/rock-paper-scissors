@@ -4,8 +4,9 @@ let humanScore = 0;
 let computerScore = 0;
 let count = 0;
 let humanChoice = '';
-const board = document.querySelector('.human-choice');
+const choices = document.querySelector('.human-choice');
 const result = document.querySelector('.result');
+const body = document.body;
 
 
 function getComputerChoice(){
@@ -19,7 +20,7 @@ function getComputerChoice(){
     }
 }
 
- board.addEventListener('click', (e) => {
+ choices.addEventListener('click', (e) => {
     humanChoice = e.target.innerText;
 });
 
@@ -32,34 +33,35 @@ function playRound(humanChoice, computerChoice){
     const currentScore = document.createElement('p');
     const finalScore = document.createElement('p');
     const winner = document.createElement('p');
+    const resetBtn = document.createElement('button');
 
-    if(count < 4){
+    if(count < 5){
         count++;
         if(human === computer){
-            para.textContent = `${human} and ${computer} are the same so it's a draw!`;
+            para.textContent = `${human.toUpperCase()} and ${computer.toUpperCase()} are the same so it's a draw!`;
         } else {
             if(computer === "rock" && human != "paper"){
                 computerScore++;
-                para.textContent = `${computer} beats ${human}. Computer wins this round!`;
+                para.textContent = `${computer.toUpperCase()} beats ${human.toUpperCase()}. Computer wins this round!`;
 
-            } else if(computer === "paper" && human != "scissors"){
+            } else if(computer === "paper" && human != "scissor"){
                 computerScore++;
-                para.textContent = `${computer} beats ${human}. Computer wins this round!`;
+                para.textContent = `${computer.toUpperCase()} beats ${human.toUpperCase()}. Computer wins this round!`;
 
             } else if(computer === "scissor" && human != "rock"){
                 computerScore++;
-                para.textContent = `${computer} beats ${human}. Computer wins this round!`;
+                para.textContent = `${computer.toUpperCase()} beats ${human.toUpperCase()}. Computer wins this round!`;
                 
             } else {
                 humanScore++;
-                para.textContent = `${human} beats ${computer}. You win this round!`;
+                para.textContent = `${human.toUpperCase()} beats ${computer.toUpperCase()}. You win this round!`;
             }
         }
         currentScore.textContent = `Score is - Computer: ${computerScore} | You: ${humanScore}`;
         
-    } else if(count === 4){
+    } else if(count === 5){
+        count++;
         finalScore.textContent = `Final Score: Computer ${computerScore} | Human ${humanScore}.`;
-
         if(computerScore > humanScore){
             winner.textContent = "COMPUTER WINS!";
         } else if(computerScore < humanScore){
@@ -67,14 +69,24 @@ function playRound(humanChoice, computerChoice){
         } else{
             winner.textContent = "IT'S A DRAW!";
         }
+        result.appendChild(finalScore);
+        result.appendChild(winner);
+
+        resetBtn.textContent = 'Play Again!';
+        result.appendChild(resetBtn);
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            computerScore = 0;
+            humanScore = 0;
+            result.textContent = '';
+        });
     }
     result.appendChild(para);
     result.appendChild(currentScore);
-    result.appendChild(finalScore);
-    result.appendChild(winner);
-}
+};
 
 
-board.addEventListener('click', (e) => {
+choices.addEventListener('click', () => {
+    // body.appendChild(result);
     playRound(humanChoice, getComputerChoice());
 });
