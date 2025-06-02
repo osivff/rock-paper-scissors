@@ -8,6 +8,7 @@ const choices = document.querySelector('.human-choice');
 const result = document.querySelector('.result');
 const body = document.body;
 
+body.style.backgroundColor = "#FAF4D3";
 
 function getComputerChoice(){
     random = Math.floor((Math.random() * 3) + 1);
